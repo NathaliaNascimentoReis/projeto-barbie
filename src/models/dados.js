@@ -2,33 +2,33 @@ let barbies = [
   {
     id: 1,
     nome: "Barbie",
-    profissao: "Diversas (modelo, astronauta, médica, etc.)",
-    anoLancamento: 1959,
+    profissao: "Astronauta",
+    anoLancamento: 1965,
   },
   {
     id: 2,
-    nome: "Ken",
-    profissao: "Diversas (atleta, piloto, etc.)",
-    anoLancamento: 1961,
+    nome: "Barbie",
+    profissao: "Médica",
+    anoLancamento: 1973,
   },
   {
     id: 3,
-    nome: "Skipper",
-    profissao: "Estudante",
-    anoLancamento: 1964,
+    nome: "Barbie",
+    profissao: "Presidente",
+    anoLancamento: 2000,
   },
   {
     id: 4,
-    nome: "Teresa",
-    profissao: "Cantora",
-    anoLancamento: 1988,
+    nome: "Barbie",
+    profissao: "Cientista de Robótica",
+    anoLancamento: 2018,
   },
   {
     id: 5,
-    nome: "Midge",
-    profissao: "Diversas",
-    anoLancamento: 1963,
+    nome: "Barbie",
+    profissao: "Cientista do Mar",
+    anoLancamento: 2021,
   },
 ];
 
-export default {barbies};
+export default { barbies };
