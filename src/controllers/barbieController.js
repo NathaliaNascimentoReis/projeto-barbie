@@ -1,4 +1,3 @@
-import express from "express";
 import dados from "../models/dados.js";
 const { barbies } = dados;
 
@@ -22,4 +21,30 @@ if (barbie) {
   }
 }
 
-export { getAll, getById };
+let createBarbie = (req, res) => {
+  const {nome, profissao, anoLancamento} = req.body;
+
+  if (!nome || !profissao) {
+    return res.status(400).json({
+      sucess: false,
+      message: "Nome e profissão são campos obrigatórios!"
+    })
+  }
+
+  const newBarbie = {
+    id: barbies.length++,
+    nome: nome,
+    profissao: profissao,
+    anoLancamento: anoLancamento
+  }
+  
+  barbies.push(newBarbie)
+
+  res.status(200).json({
+    sucess: true,
+    message: "Barbie criada com sucesso!",
+    data: newBarbie
+  })
+}
+
+export { getAll, getById, createBarbie };
