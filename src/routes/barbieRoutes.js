@@ -4,6 +4,7 @@ import {
   getById,
   createBarbie,
   deletarBarbie,
+  updateBarbie
 } from "../controllers/barbieController.js";
 
 const router = express.Router();

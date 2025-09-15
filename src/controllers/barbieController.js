@@ -70,4 +70,51 @@ let deletarBarbie = (req, res) => {
   });
 };
 
-export { getAll, getById, createBarbie, deletarBarbie };
+let updateBarbie = (req, res) => {
+  // toda a lógica para atualizar uma Barbie específica
+  const id = parseInt(req.params.id);
+  // Body para pegar os novos dados
+  const {nome, profissao, anoLancamento} = req.body;
+
+  const idParaEditar = id;
+
+  // Verificar se o ID é válido
+  if (isNan(idParaEditar)) {
+    return res.status(400).json({
+      sucess: false,
+      message: "O ID deve ser um númeroo válido!"
+    })
+  }
+
+// Verificar se a Barbie buscada existe
+const barbieExiste = barbies.find(barbie => barbie.id === idParaEditar)
+
+if (!barbieExiste) {
+  return res.status(404).json({
+    sicess: false,
+    message: `Barbie com ID: ${id} não existe.`
+  })
+}
+
+// Após passar todos os cenários, eu atualizo a Barbie.
+// Laço map()
+
+const barbiesAtualizadas = barbies.map(barbie => barbie.id === idParaEditar ? {
+  // Parte 1
+  ...barbie,
+  ...(nome && {nome}),
+  ...(profissao && {profissao}),
+  ...(anoLancamento && {anoLancamento}),
+} : barbie)
+
+  // Atualizado o array com o splice
+  const barbieNova = barbies.find(barbie => barbie.id === idParaEditar);
+
+  res.status(200).json({
+    sucess: true,
+    message: `Dados da Barbie ID ${idParaEditar} atualizados com sucesso!`,
+    barbie: barbieNova
+  })
+}
+
+export { getAll, getById, createBarbie, deletarBarbie, updateBarbie };
